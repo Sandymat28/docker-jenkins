@@ -1,5 +1,5 @@
 pipeline {
-  agent { label 'linux' }
+  agent any // Utiliser n'importe quel agent disponible
   options {
     buildDiscarder(logRotator(numToKeepStr: '5'))
   }
