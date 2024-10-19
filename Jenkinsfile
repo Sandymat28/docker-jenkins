@@ -4,12 +4,12 @@ pipeline {
     buildDiscarder(logRotator(numToKeepStr: '5'))
   }
   environment {
-    DOCKERHUB_CREDENTIALS = credentials('emmanuel236-Dockerhub')
+    DOCKERHUB_CREDENTIALS = credentials('DOCKER_ACCOUNT')
   }
   stages {
     stage('Build') {
       steps {
-        sh 'docker build -t emmanuel236/yoyama-alpine:latest .'
+        sh 'docker build -t matsandy/lari:latest .'
       }
     }
     stage('Login') {
@@ -19,7 +19,7 @@ pipeline {
     }
     stage('Push') {
       steps {
-        sh 'docker push emmanuel236/yoyama-alpine:latest'
+        sh 'docker push matsandy/lari:latest'
       }
     }
   }
